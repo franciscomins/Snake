@@ -6,7 +6,7 @@ public class Snake : MonoBehaviour
 {
     public Transform segmentPrefab;
     public Vector2Int direction = Vector2Int.right;
-    public float speed = 15f;
+    public float speed = 13f;
     public float speedMultiplier = 1f;
     public int initialSize = 4;
     public bool moveThroughWalls = false;
@@ -80,7 +80,7 @@ public class Snake : MonoBehaviour
 
     public void ResetState()
     {
-        direction = Vector2Int.right;
+        direction = Vector2Int.left;
         transform.position = Vector3.zero;
 
         // Start at 1 to skip destroying the head
@@ -117,7 +117,7 @@ public class Snake : MonoBehaviour
         {
             Grow();
         }
-        else if (other.gameObject.CompareTag("Obstacle"))
+        else if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Player"))
         {
             ResetState();
         }

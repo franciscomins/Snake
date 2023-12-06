@@ -6,7 +6,7 @@ public class Snake2 : MonoBehaviour
 {
     public Transform segmentPrefab;
     public Vector2Int direction = Vector2Int.right;
-    public float speed = 15f;
+    public float speed = 13f;
     public float speedMultiplier = 1f;
     public int initialSize = 4;
     public bool moveThroughWalls = false;
@@ -121,7 +121,7 @@ public class Snake2 : MonoBehaviour
         {
             ResetState();
         }
-        else if (other.gameObject.CompareTag("Obstacle"))
+        else if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Player"))
         {
             if (moveThroughWalls) {
                 Traverse(other.transform);
